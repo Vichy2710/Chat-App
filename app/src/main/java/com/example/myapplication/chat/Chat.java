@@ -64,7 +64,12 @@ public class Chat extends AppCompatActivity {
         getUserMobile = MemoryData.getData(Chat.this);
 
         nameTV.setText(getName);
-        Picasso.get().load(getProfilePic).into(profilePic);
+        if (getProfilePic.isEmpty()) {
+            profilePic.setImageResource(R.drawable.user_icon);
+        } else{
+            Picasso.get().load(getProfilePic).into(profilePic);
+        }
+
 
         chattingRecyclerView.setHasFixedSize(true);
         chattingRecyclerView.setLayoutManager(new LinearLayoutManager(Chat.this));
@@ -82,7 +87,7 @@ public class Chat extends AppCompatActivity {
                         if (snapshot.hasChild("chat")) {
                             chatKey = String.valueOf(snapshot.child("chat").getChildrenCount() + 1);
 
-                            ;
+
                         }
                     }
 

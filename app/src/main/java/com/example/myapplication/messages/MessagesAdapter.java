@@ -44,6 +44,8 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.MyView
 
         if(!list2.getProfilePic().isEmpty()){
             Picasso.get().load(list2.getProfilePic()).into(holder.profilePic);
+        }else{
+            holder.profilePic.setImageResource(R.drawable.user_icon);
         }
         holder.name.setText(list2.getName());
         holder.lastMessage.setText(list2.getLastMessage());
